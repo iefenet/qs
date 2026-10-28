@@ -7,6 +7,7 @@
   "unpkg": "dist/lite-qs.min.js",
   "jsdelivr": "dist/lite-qs.min.js",
   "miniprogram": "dist/lite-qs.cjs",
+  "homepage":"www.iefe.net",
   "exports": {
     ".": {
       "import": "./dist/lite-qs.mjs",
