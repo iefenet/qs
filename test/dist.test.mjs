@@ -15,29 +15,29 @@ function ok(cond, label) {
 }
 
 // CJS：Node.js / 小程序 require
-const cjs = require('../dist/lite-qs.cjs');
+const cjs = require('../dist/iefe-qs.cjs');
 ok(typeof cjs.parse === 'function' && typeof cjs.stringify === 'function', 'cjs exports');
 assert.deepStrictEqual(cjs.parse('a=1&b=2'), { a: '1', b: '2' });
 passed++;
 
 // UMD / min UMD：在孤立全局上下文中模拟 <script> 引入
-for (const file of ['dist/lite-qs.umd.js', 'dist/lite-qs.min.js']) {
+for (const file of ['dist/iefe-qs.umd.js', 'dist/iefe-qs.min.js']) {
   const code = readFileSync(path.join(root, file), 'utf8');
   const ctx = {};
   vm.createContext(ctx);
   vm.runInContext(code, ctx);
-  ok(typeof ctx.liteQs === 'object', `${file} sets global liteQs`);
-  ok(typeof ctx.liteQs.parse === 'function', `${file} liteQs.parse`);
+  ok(typeof ctx.iefeQs === 'object', `${file} sets global iefeQs`);
+  ok(typeof ctx.iefeQs.parse === 'function', `${file} iefeQs.parse`);
   // vm 上下文中的对象原型与主上下文不同，用 JSON 比较结果值。
-  assert.strictEqual(JSON.stringify(ctx.liteQs.parse('a[b]=1&c[]=2')), '{"a":{"b":"1"},"c":["2"]}');
+  assert.strictEqual(JSON.stringify(ctx.iefeQs.parse('a[b]=1&c[]=2')), '{"a":{"b":"1"},"c":["2"]}');
   passed++;
-  assert.strictEqual(ctx.liteQs.stringify({ a: [1, 2] }), 'a%5B%5D=1&a%5B%5D=2');
+  assert.strictEqual(ctx.iefeQs.stringify({ a: [1, 2] }), 'a%5B%5D=1&a%5B%5D=2');
   passed++;
 }
 
 // min 产物确实是压缩过的（体积明显更小）
-const umdSize = readFileSync(path.join(root, 'dist/lite-qs.umd.js'), 'utf8').length;
-const minSize = readFileSync(path.join(root, 'dist/lite-qs.min.js'), 'utf8').length;
+const umdSize = readFileSync(path.join(root, 'dist/iefe-qs.umd.js'), 'utf8').length;
+const minSize = readFileSync(path.join(root, 'dist/iefe-qs.min.js'), 'utf8').length;
 ok(minSize < umdSize, 'min.js smaller than umd.js');
 
 // 核心源码约束：无环境全局变量、无 Node 内置模块、无 Function 构造器。

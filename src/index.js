@@ -1,11 +1,11 @@
 /**
- * lite-qs —— 极简、零依赖、跨平台的 query string 工具库。
+ * @iefe/qs —— 极简、零依赖、跨平台的 query string 工具库。
  *
  * 核心约束：不引用任何环境全局变量（window / document / global / process /
  * navigator / Function 构造器等），不引用任何 Node.js 内置模块，全部为纯函数，
  * 因此可在微信小程序、uni-app（含非 H5 端）、Node.js、浏览器 H5 中运行。
  *
- * @module lite-qs
+ * @module @iefe/qs
  */
 
 /** 需要过滤的危险键名，用于防止原型污染。 */

@@ -1,6 +1,6 @@
-// 针对构建产物 dist/lite-qs.mjs 的功能测试。
+// 针对构建产物 dist/iefe-qs.mjs 的功能测试。
 import assert from 'node:assert/strict';
-import { parse, stringify } from '../dist/lite-qs.mjs';
+import { parse, stringify } from '../dist/iefe-qs.mjs';
 
 let passed = 0;
 function eq(actual, expected, label) {

@@ -1,18 +1,25 @@
 {
-  "name": "lite-qs",
+  "name": "@iefe/qs",
   "version": "1.0.0",
   "description": "极简、零依赖、跨平台的 query string 工具库（parse / stringify），可用于微信小程序、uni-app（含非 H5 端）、Node.js 与浏览器 H5。",
-  "main": "dist/lite-qs.cjs",
-  "module": "dist/lite-qs.mjs",
-  "unpkg": "dist/lite-qs.min.js",
-  "jsdelivr": "dist/lite-qs.min.js",
-  "miniprogram": "dist/lite-qs.cjs",
+  "repository": { 
+    "type": "git", 
+    "url": "git+https://github.com/iefenet/qs.git" 
+  },
   "homepage":"www.iefe.net",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/iefe-qs.cjs",
+  "module": "dist/iefe-qs.mjs",
+  "unpkg": "dist/iefe-qs.min.js",
+  "jsdelivr": "dist/iefe-qs.min.js",
+  "miniprogram": "dist/iefe-qs.cjs",
   "exports": {
     ".": {
-      "import": "./dist/lite-qs.mjs",
-      "require": "./dist/lite-qs.cjs",
-      "default": "./dist/lite-qs.cjs"
+      "import": "./dist/iefe-qs.mjs",
+      "require": "./dist/iefe-qs.cjs",
+      "default": "./dist/iefe-qs.cjs"
     },
     "./package.json": "./package.json"
   },

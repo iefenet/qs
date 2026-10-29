@@ -1,4 +1,4 @@
-# lite-qs
+# @iefe/qs
 
 极简、零依赖、跨平台的 query string 工具库，只有两个纯函数：`parse` 和 `stringify`。
 
@@ -12,13 +12,13 @@
 ## 安装
 
 ```bash
-npm install lite-qs
+npm install @iefe/qs
 ```
 
 ## 快速上手
 
 ```js
-import { parse, stringify } from 'lite-qs';
+import { parse, stringify } from '@iefe/qs';
 
 parse('a=1&b=2');                          // { a: '1', b: '2' }
 parse('a[b]=1');                           // { a: { b: '1' } }
@@ -67,9 +67,9 @@ stringify({ a: null, b: undefined, c: 1 });          // 'c=1'
 
 ```js
 // ESM
-import { parse, stringify } from 'lite-qs';
+import { parse, stringify } from '@iefe/qs';
 // CommonJS
-const { parse, stringify } = require('lite-qs');
+const { parse, stringify } = require('@iefe/qs');
 ```
 
 `package.json` 已配置 `main` / `module` / `exports`，Node 与各类打包器会自动选择对应产物。
@@ -78,34 +78,34 @@ const { parse, stringify } = require('lite-qs');
 
 通过 npm 安装后：
 
-- **H5 端和 App 端**可直接 `import { parse, stringify } from 'lite-qs'` 使用。
+- **H5 端和 App 端**可直接 `import { parse, stringify } from '@iefe/qs'` 使用。
 - **编译到小程序端前**，只需确认没有引入任何浏览器专属代码 —— 本库核心逻辑天然满足（源码不含 `window` / `document` 等）。
 - 如果运行到小程序模拟器时遇到 `node_modules` 被清除、找不到包的情况，请在**微信开发者工具的终端**中单独执行 `npm install`，然后点击菜单「工具 → 构建 npm」。
 
 ### 3. 微信小程序原生开发
 
 ```bash
-npm install lite-qs
+npm install @iefe/qs
 ```
 
 然后在微信开发者工具中点击「工具 → 构建 npm」，之后即可：
 
 ```js
-const { parse, stringify } = require('lite-qs');
+const { parse, stringify } = require('@iefe/qs');
 ```
 
 ### 4. 浏览器 CDN
 
 ```html
-<script src="https://unpkg.com/lite-qs"></script>
+<script src="https://unpkg.com/@iefe/qs"></script>
 <script>
-  // 全局变量 window.liteQs
-  var params = liteQs.parse('a=1&b=2'); // { a: '1', b: '2' }
+  // 全局变量 window.iefeQs
+  var params = iefeQs.parse('a=1&b=2'); // { a: '1', b: '2' }
 </script>
 ```
 
-- 默认加载压缩版（`unpkg` / `jsdelivr` 字段指向 `dist/lite-qs.min.js`）。
-- 调试时可手动改为 `https://unpkg.com/lite-qs/dist/lite-qs.umd.js` 获取未压缩、可读的源码版本。
+- 默认加载压缩版（`unpkg` / `jsdelivr` 字段指向 `dist/iefe-qs.min.js`）。
+- 调试时可手动改为 `https://unpkg.com/@iefe/qs/dist/iefe-qs.umd.js` 获取未压缩、可读的源码版本。
 - ⚠️ **此方式仅限 H5**；小程序和 uni-app 的非 H5 端不可用（它们没有 `<script>` 与全局 `window`）。
 
 ## 明确不支持的功能
@@ -128,10 +128,10 @@ npm run build
 
 | 文件 | 格式 | 说明 |
 | --- | --- | --- |
-| `dist/lite-qs.cjs` | CommonJS | 未压缩，供 Node.js / 小程序 `require`。 |
-| `dist/lite-qs.mjs` | ES Module | 未压缩，供 Vue / React / uni-app `import`。 |
-| `dist/lite-qs.umd.js` | UMD | 未压缩，供调试或需要可读源码的 CDN 场景。 |
-| `dist/lite-qs.min.js` | UMD | 压缩混淆，供生产环境 CDN / `<script>`。 |
+| `dist/iefe-qs.cjs` | CommonJS | 未压缩，供 Node.js / 小程序 `require`。 |
+| `dist/iefe-qs.mjs` | ES Module | 未压缩，供 Vue / React / uni-app `import`。 |
+| `dist/iefe-qs.umd.js` | UMD | 未压缩，供调试或需要可读源码的 CDN 场景。 |
+| `dist/iefe-qs.min.js` | UMD | 压缩混淆，供生产环境 CDN / `<script>`。 |
 
 ## 测试
 
